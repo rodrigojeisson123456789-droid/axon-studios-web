@@ -1,57 +1,87 @@
-# Axon Studios
+# Axon Studios — React
 
-Web de presentación de **páginas web, apps Android y bases de datos**. Sitio estático en español con HTML, CSS y JavaScript. No necesita backend, framework ni compilación para mostrarse.
+Web de presentación en español para **páginas web, apps Android y bases de datos**. Conserva la portada “Creamos lo que sigue”, el logo blanco, la red de partículas y el configurador que se eligieron en la versión original.
 
-## Ver la página
+## Verla en tu computadora
 
-Descarga el repositorio y abre `index.html`. Para una revisión local más completa, desde la carpeta del proyecto ejecuta:
+Necesitas **Node.js 22.12+**; se recomienda Node 24, la versión usada para validar esta entrega.
 
-```sh
-python3 -m http.server 8000
-```
-
-Abre `http://localhost:8000`. El envío del formulario depende del servicio externo FormSubmit; la vista local no demuestra que el correo llegue.
-
-## Decisiones de la mejora
-
-- **Enfoque:** tres servicios actuales en lugar de una oferta general de software, IA y cloud.
-- **Identidad:** conservamos la marca, el fondo oscuro y el azul. Se conserva la portada original: “Creamos lo que sigue”, logo blanco y una red de puntos animada en SVG. Las tarjetas muestran web, Android y datos mediante ilustraciones en HTML y CSS.
-- **Contenido verificable:** los ejemplos se identifican como conceptos. No son proyectos reales, testimonios ni resultados de clientes.
-- **Configurador recuperado:** tres tipos de proyecto, etapa y extras actualizan un diagrama y un rango orientativo. La fórmula es una referencia de planificación para complejidad baja o media, no una cotización: parte de 4 semanas para web, 8 para Android y 3 para datos; aplica un factor de alcance y suma esfuerzo por extras. El soporte posterior no suma semanas. Estas hipótesis deben calibrarse con la capacidad y experiencia reales del negocio. El plazo se confirma tras revisar requisitos. La selección se envía como un campo independiente; no sobrescribe el mensaje. Se puede quitar y se limpia al cambiar de servicio o completar el envío.
-- **Movimiento con control:** logo flotante y una red de partículas SVG en la portada, entradas escalonadas y transiciones entre ejemplos. Sin cursor personalizado, canvas ni bucles de JavaScript. El texto principal está disponible sin JavaScript. El usuario puede pausar el movimiento; también se respeta la preferencia de movimiento reducido del sistema, incluidos cambios durante la visita. La preferencia manual se guarda localmente si el navegador lo permite. Las ilustraciones se pausan fuera de pantalla y las animaciones se pausan al ocultar la pestaña.
-- **Interacción accesible:** menú con estado y cierre mediante Escape; ejemplos con pestañas y navegación de teclado; preguntas frecuentes nativas; foco visible y respeto por movimiento reducido.
-- **Contacto:** validación de correo, mensaje y adjuntos; bloqueo de envíos simultáneos; confirmación solo con respuesta positiva del proveedor; conservación del mensaje ante errores; tiempo máximo de espera de 25 segundos.
-
-Mantener HTML/CSS/JavaScript es deliberado: la web presenta servicios y recoge consultas. Migrar a un framework añadiría mantenimiento sin resolver una necesidad actual. Los lenguajes y herramientas de los proyectos Android o de bases de datos se eligen según cada proyecto, no según la tecnología de esta web.
-
-## Pruebas
-
-Node.js 22.13+ o 24+ recomendado. Las dependencias son solo para pruebas, no para servir la web:
+Desde la carpeta del proyecto:
 
 ```sh
 npm ci
-npm test
+npm run dev
 ```
 
-Las quince pruebas usan un DOM simulado y respuestas de red simuladas. Verifican estructura, archivos, enlaces, menú, pestañas, configurador, selección de servicio y éxito/error del formulario, incluidos adjuntos y duplicados. También comprueban preferencias de movimiento, pausa y reanudación, contenido accesible al recibir foco y funcionamiento sin IntersectionObserver o almacenamiento local. No envían consultas reales y **no sustituyen las pruebas en navegador**, de accesibilidad con lector de pantalla ni de entrega de correo.
+Abre la dirección que indique Vite en la terminal. A diferencia de la versión anterior, **el `index.html` del código fuente no se abre directamente haciendo doble clic**: React usa módulos que se sirven con Vite.
 
-## Antes de publicar
+Para comprobar la versión de producción:
 
-1. Revisar la composición en un navegador real, en celular y escritorio, incluidos zoom, teclado, foco y posibles desbordamientos.
-2. Confirmar que el destino de FormSubmit pertenece al negocio y está activado. Enviar una consulta de prueba con permiso, verificar recepción y probar un adjunto permitido. Se conservó el identificador del sitio original.
-3. Ajustar el aviso de privacidad a las prácticas reales del negocio. El formulario informa que el envío usa FormSubmit. La validación del navegador mejora la experiencia, pero el servicio receptor es responsable de las verificaciones del lado servidor.
-4. Al tener un dominio definitivo, configurar URL canónica, `og:url` y direcciones absolutas para `og:image` y `twitter:image`. Evitamos inventar un dominio.
-5. Incorporar proyectos reales con permiso de sus propietarios y una vía alternativa de contacto verificada. No se añadieron teléfonos o correos que no fueron proporcionados.
-6. Acordar con cada cliente alcance, plazo, presupuesto, propiedad de entregables, publicación y soporte. La página no los promete como condiciones universales.
+```sh
+npm run build
+npm run preview
+```
 
-## Archivos
+`npm run build` genera `dist/`. Esa carpeta es la que se publica en un alojamiento estático. **No necesita un servidor Node en producción.** No se ha configurado publicación ni se ha desplegado desde esta mejora.
 
-- `index.html`: contenido, estructura, metadatos y formulario.
-- `styles.css`: identidad visual, ilustraciones y tamaños adaptables.
-- `script.js`: menú, pestañas, selección del servicio y envío de consulta.
-- `motion.js`: preferencias, pausa y entradas al recorrer la página, sin dependencias.
-- `configurator.js`: cálculo orientativo, módulos, resumen de consulta y hora inicial de Lima.
-- `img/`: imágenes originales de la marca.
-- `tests/site.test.cjs`: pruebas de estructura e interacción.
+## Qué cambió
 
-No se configuró publicación ni alojamiento desde esta mejora.
+- React divide la web en componentes independientes: navegación, portada, servicios, ejemplos, proceso, configurador, preguntas frecuentes y contacto.
+- Motion aporta transiciones de pestañas, cambios de distribución y respuestas suaves de las tarjetas y la portada al movimiento del puntero. CSS anima el logo, las órbitas, la red de puntos y las conexiones del diagrama.
+- Las demos son interactivas: formato de escritorio/celular en la web, filtros de pedidos en Android y relaciones cliente/pedidos en datos. **Todos los datos son ficticios y no se presentan como proyectos de clientes.**
+- El configurador usa estado de React. Sus opciones actualizan módulos y referencia de semanas, y se transfieren al formulario sin reemplazar el mensaje escrito.
+- Los estilos se separan en base, composición, componentes y movimiento. Las imágenes de marca originales se conservan en `public/img/`.
+- La compilación prerenderiza la página como HTML y React la hidrata. En **producción**, el contenido principal, la navegación, las preguntas frecuentes y el formulario nativo están disponibles incluso antes de cargar JavaScript. El configurador y las demos interactivas sí lo necesitan.
+
+React no mejora el diseño por sí mismo. Se eligió para organizar y hacer evolucionar estas interacciones. Node se usa para desarrollo, pruebas y compilación; no se añadió un backend innecesario.
+
+## Movimiento y accesibilidad
+
+- Control visible para pausar/reanudar y preferencia manual local cuando el navegador permite almacenamiento.
+- Respeto por movimiento reducido del sistema, incluidos cambios durante la visita. Las respuestas al puntero se limitan a dispositivos que admiten un puntero fino.
+- Animaciones CSS pausadas al ocultar la pestaña o salir la portada de pantalla. No hay canvas ni bucles manuales de `requestAnimationFrame`.
+- El contenido no depende de animaciones para mostrarse. Las entradas al recorrer la página tienen alternativa cuando no existen observadores, y recibir foco revela el contenido inmediatamente.
+- Pestañas con teclado, campos etiquetados, foco visible y estructura semántica.
+
+## Configurador: hipótesis, no promesas
+
+La referencia orientativa parte de 4 semanas para web, 8 para Android y 3 para datos. Aplica un factor por alcance y suma esfuerzo por diseño, integraciones, panel y datos. No suma semanas por soporte posterior ni cuenta dos veces una base de datos ya incluida.
+
+Estas hipótesis son **referencias para complejidad baja o media** que deben calibrarse con la capacidad y experiencia reales de Axon. No constituyen cotización ni compromiso de plazo. El alcance, presupuesto y tiempo se confirman después de revisar requisitos.
+
+## Contacto
+
+Se conserva el destino original de FormSubmit. El envío valida correo, mensaje y adjuntos, bloquea duplicados, espera confirmación positiva del proveedor y conserva los datos ante errores. Una consulta que supera 25 segundos se aborta con un mensaje que evita afirmar que el envío falló definitivamente. La configuración se adjunta como un campo separado y puede quitarse o limpiarse al cambiar de servicio.
+
+La validación del cliente mejora la experiencia; las verificaciones del lado servidor corresponden al servicio receptor. Antes de publicar, confirmar activación y recepción real de FormSubmit, revisar sus límites y ajustar el aviso de privacidad a las prácticas reales del negocio. **Las pruebas no envían correos.**
+
+## Pruebas
+
+```sh
+npm test
+npm run build
+```
+
+Vitest, Testing Library y jsdom verifican navegación, teclado, demos, preferencias de movimiento, configurador, hidratación y estados de envío. La compilación verifica también el HTML prerenderizado sin ejecutar JavaScript, sus enlaces y los assets locales.
+
+Las pruebas de DOM **no comprueban el aspecto visual, la fluidez real ni las medidas de rendimiento de un navegador**. La herramienta de vista previa del entorno no está disponible en esta entrega. Quedan pendientes revisión visual en móvil y escritorio, zoom, lector de pantalla y entrega real del formulario.
+
+Como referencia de tamaño, la primera compilación produjo aproximadamente 125 kB gzip de JavaScript y 11 kB gzip de CSS. Son tamaños del build, no mediciones de velocidad o puntuaciones de Lighthouse. React y Motion incorporan más JavaScript que la versión estática anterior.
+
+## Estructura
+
+```text
+src/
+  App.jsx                 Composición de la página
+  experience.jsx          Movimiento y selección de contacto compartidos
+  data.js                 Servicios e hipótesis del configurador
+  components/             Componentes de React
+  styles/                 Diseño y animaciones
+  main.jsx                Entrada e hidratación del cliente
+  entry-server.jsx        HTML para la compilación
+public/img/               Imágenes originales
+scripts/                  Prerender y verificación de producción
+tests/                    Pruebas de comportamiento
+```
+
+Al tener un dominio definitivo, completar URL canónica, `og:url` e imágenes sociales con direcciones absolutas. Incorporar proyectos reales y vías de contacto adicionales cuando existan datos verificados; no se inventaron clientes, cifras ni testimonios.
