@@ -1,0 +1,12 @@
+{
+  "name": "axon-studios-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio estático de Axon Studios. No requiere compilación.",
+  "scripts": {
+    "test": "node --check script.js && node --test tests/site.test.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "^29.0.0"
+  }
+}

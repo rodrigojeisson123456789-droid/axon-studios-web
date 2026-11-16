@@ -1,282 +1,759 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Axon Studios | Creamos lo que sigue</title>
-  <meta name="description" content="Estudio de tecnología y diseño en Perú. Desarrollamos software, diseñamos interfaces y definimos estrategia digital para empresas y emprendimientos.">
-  <meta name="theme-color" content="#070B14">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Axon Studios">
-  <meta property="og:locale" content="es_PE">
-  <meta property="og:title" content="Axon Studios | Creamos lo que sigue">
-  <meta property="og:description" content="Estudio de tecnología y diseño en Perú. Software, interfaces y estrategia digital para empresas y emprendimientos.">
-  <meta property="og:image" content="img/axon-social.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Axon Studios: Creamos lo que sigue. Tecnología, diseño y estrategia digital.">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Axon Studios | Creamos lo que sigue">
-  <meta name="twitter:description" content="Estudio de tecnología y diseño en Perú. Software, interfaces y estrategia digital para empresas y emprendimientos.">
-  <meta name="twitter:image" content="img/axon-social.png">
-  <meta name="twitter:image:alt" content="Axon Studios: Creamos lo que sigue. Tecnología, diseño y estrategia digital.">
-  <link rel="icon" href="img/4 (1).png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <a href="#main" class="skip-link">Saltar al contenido</a>
-
-  <div class="progress" id="progress" aria-hidden="true"></div>
-  <div class="axon" aria-hidden="true"></div>
-  <div class="cursor" id="cursor" aria-hidden="true"></div>
-  <a class="contact-float" href="#contacto" aria-label="Ir al formulario de contacto">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l1.8-3.6A7.5 7.5 0 1 1 20 11.5Z"/><path d="M9 11.5h.01M12.5 11.5h.01M16 11.5h.01"/></svg>
-    <span>Hablemos</span>
-  </a>
-  <header id="header">
-    <nav class="container" aria-label="Principal">
-      <a href="#inicio" class="logo" aria-label="Axon Studios, inicio">
-        <img src="img/4 (1).png" alt="" width="36" height="36">
-        <span>axon<em> studios</em></span>
-      </a>
-      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
-        <span></span><span></span>
-      </button>
-      <button class="kbd" id="cmd-open" type="button" aria-label="Abrir buscador de comandos">Buscar <kbd>Ctrl K</kbd></button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#tecnologia">Tecnología</a></li>
-        <li><a href="#proceso">Proceso</a></li>
-        <li><a href="#configurador">Configurador</a></li>
-        <li><a href="#contacto" class="nav-cta">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="main">
-    <section class="hero" id="inicio">
-      <canvas id="neural" aria-hidden="true"></canvas>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1 id="h1" aria-label="Creamos lo que sigue.">Creamos lo que sigue.</h1>
-          <p class="hero-line">Convertimos ideas en <span class="rotor" id="rotor" data-words="software,interfaces,estrategia,productos">software</span><i class="caret" aria-hidden="true"></i></p>
-          <p>Estudio de tecnología y diseño para empresas, emprendimientos y organizaciones.</p>
-          <a href="#contacto" class="btn magnetic">Hablemos de tu proyecto</a>
-        </div>
-        <div class="hero-signal" aria-hidden="true">
-          <img src="img/5 (1).png" alt="" width="320" height="320">
-        </div>
-      </div>
-      <p class="hud" aria-hidden="true"><span>Lima, Perú</span><time id="clock"></time><span class="live">en línea</span></p>
-    </section>
-
-    <div class="marquee" aria-label="Tecnologías con las que trabajamos"><div class="track" aria-hidden="true"><span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>Python</span><span>Flutter</span><span>PostgreSQL</span><span>Docker</span><span>AWS</span><span>Figma</span><span>IA / LLMs</span><span>APIs REST</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>Python</span><span>Flutter</span><span>PostgreSQL</span><span>Docker</span><span>AWS</span><span>Figma</span><span>IA / LLMs</span><span>APIs REST</span></div></div>
-
-    <section id="nosotros" class="section">
-      <div class="container split">
-        <h2>Tecnología, diseño y estrategia en un mismo proceso.</h2>
-        <div>
-          <p class="lead">No nos limitamos a programar ni a diseñar pantallas. Trabajamos el producto completo con un solo equipo, para que lo que se piensa sea lo que se construye y lo que se construye sea lo que el usuario necesita.</p>
-          <dl class="stats">
-            <div class="spot"><dt>equipo para todo el producto</dt><dd><b data-count="1">1</b></dd></div>
-            <div class="spot"><dt>etapas claras de trabajo</dt><dd><b data-count="4">4</b></dd></div>
-            <div class="spot"><dt>horas máx. de respuesta</dt><dd><b data-count="48">48</b></dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <section id="servicios" class="section section-alt">
-      <div class="container">
-        <h2>Qué hacemos</h2>
-        <ul class="services">
-          <li class="reveal spot">
-            <h3><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>Desarrollo de software</h3>
-            <div><p>Aplicaciones web y móviles robustas y escalables, hechas a la medida de tu negocio.</p><p class="tags"><span>Web apps</span><span>Apps móviles</span><span>SaaS</span></p></div>
-          </li>
-          <li class="reveal spot">
-            <h3><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M8 4v5m8-5v5M8 14h3m2 0h3m-8 3h3"/></svg></span>Diseño UX/UI</h3>
-            <div><p>Interfaces claras y centradas en las personas que las usan, fáciles de entender desde el primer clic.</p><p class="tags"><span>Investigación</span><span>Prototipos</span><span>Design systems</span></p></div>
-          </li>
-          <li class="reveal spot">
-            <h3><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h17M7 15l4-4 3 2 6-7"/><path d="M16 6h4v4"/></svg></span>Estrategia digital</h3>
-            <div><p>Modernizamos tu marca y fortalecemos tu presencia digital con objetivos medibles.</p><p class="tags"><span>Marca</span><span>Roadmap</span><span>Métricas</span></p></div>
-          </li>
-          <li class="reveal spot">
-            <h3><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg></span>IA y automatización</h3>
-            <div><p>Integramos asistentes, análisis de datos y flujos automáticos para que tu equipo dedique su tiempo a lo importante.</p><p class="tags"><span>Chatbots</span><span>Automatización</span><span>Datos</span></p></div>
-          </li>
-          <li class="reveal spot">
-            <h3><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9a4.5 4.5 0 0 0 1 9Z"/><path d="m10 13 2-2 2 2m-2-2v6"/></svg></span>Cloud e integraciones</h3>
-            <div><p>Infraestructura segura, despliegues continuos y conexión con los sistemas que ya usas.</p><p class="tags"><span>AWS</span><span>APIs</span><span>CI/CD</span></p></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Axon Studios | Páginas web, apps Android y bases de datos</title>
+    <meta
+      name="description"
+      content="Creamos páginas web, aplicaciones Android y bases de datos para tu negocio. Cuéntanos tu idea y definamos el siguiente paso juntos. Lima, Perú."
+    />
+    <meta name="theme-color" content="#090d16" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:site_name" content="Axon Studios" />
+    <meta
+      property="og:title"
+      content="Axon Studios | Tu negocio, en su próxima versión"
+    />
+    <meta
+      property="og:description"
+      content="Páginas web, aplicaciones Android y bases de datos. Tecnología útil para lo que viene."
+    />
+    <meta property="og:image" content="img/axon-social.png" />
+    <meta
+      property="og:image:alt"
+      content="Axon Studios. Tecnología y diseño."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Axon Studios | Web, Android y bases de datos"
+    />
+    <meta
+      name="twitter:description"
+      content="Construyamos el siguiente paso de tu negocio."
+    />
+    <meta name="twitter:image" content="img/axon-social.png" />
+    <link rel="icon" href="img/4 (1).png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+      <nav class="container navigation" aria-label="Principal">
+        <a class="logo" href="#inicio" aria-label="Axon Studios, inicio"
+          ><img src="img/4 (1).png" alt="" width="34" height="34" /><span
+            >axon<span class="logo-light"> studios</span
+            ><span class="logo-dot">.</span></span
+          ></a
+        >
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          hidden
+        >
+          Menú <span aria-hidden="true">＋</span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#explora">Posibilidades</a></li>
+          <li><a href="#proceso">Cómo trabajamos</a></li>
+          <li>
+            <a class="nav-contact" href="#contacto"
+              >Hablemos <span aria-hidden="true">↗</span></a
+            >
           </li>
         </ul>
-      </div>
-    </section>
-
-    <section id="tecnologia" class="section">
-      <div class="container split">
-        <div>
-          <h2>Ingeniería que se nota en el resultado.</h2>
-          <p class="lead">Código limpio, pruebas automáticas y despliegues continuos desde la primera entrega. Tú ves avances reales cada semana, no presentaciones.</p>
-          <ul class="checks">
-            <li>Arquitectura escalable desde el día uno</li>
-            <li>Seguridad y rendimiento medidos, no supuestos</li>
-            <li>Código documentado y 100% tuyo al terminar</li>
-          </ul>
-        </div>
-        <div class="terminal" id="terminal" role="img" aria-label="Simulación de un despliegue en terminal">
-          <div class="term-bar"><i></i><i></i><i></i><span>axon — deploy</span></div>
-          <pre id="term-out" aria-hidden="true"></pre>
-        </div>
-      </div>
-    </section>
-
-    <section id="construimos" class="section section-alt">
-      <div class="container">
-        <h2>Qué podemos construir contigo</h2>
-        <div class="cards">
-          <article class="card reveal spot">
-            <div class="viz viz-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <h3>Paneles y plataformas</h3>
-            <p>Gestión interna, reportes en tiempo real y portales para clientes.</p>
-          </article>
-          <article class="card reveal spot">
-            <div class="viz viz-phone" aria-hidden="true"><i></i><i></i><i></i></div>
-            <h3>Apps móviles</h3>
-            <p>Experiencias nativas y multiplataforma pensadas para el uso diario.</p>
-          </article>
-          <article class="card reveal spot">
-            <div class="viz viz-nodes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-            <h3>Automatización con IA</h3>
-            <p>Asistentes y flujos que atienden, clasifican y resuelven por ti.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="configurador" class="section">
-      <div class="container">
-        <h2>Arma tu proyecto y mira cómo toma forma.</h2>
-        <p class="lead">Elige qué necesitas. El plano se actualiza al instante y te damos un plazo orientativo, sin compromiso.</p>
-        <div class="cfg">
-          <form class="cfg-form" id="cfg" novalidate>
-            <fieldset><legend>¿Qué quieres crear?</legend>
-              <label><input type="radio" name="tipo" value="web" checked><span>Sitio o app web</span></label>
-              <label><input type="radio" name="tipo" value="app"><span>App móvil</span></label>
-              <label><input type="radio" name="tipo" value="plataforma"><span>Plataforma o panel</span></label>
-              <label><input type="radio" name="tipo" value="ia"><span>Solución con IA</span></label>
-            </fieldset>
-            <fieldset><legend>¿En qué punto estás?</legend>
-              <label><input type="radio" name="alcance" value="mvp" checked><span>Primera versión</span></label>
-              <label><input type="radio" name="alcance" value="completo"><span>Producto completo</span></label>
-              <label><input type="radio" name="alcance" value="escalar"><span>Ya existe, quiero escalarlo</span></label>
-            </fieldset>
-            <fieldset><legend>¿Qué más necesitas?</legend>
-              <label><input type="checkbox" name="extra" value="design"><span>Diseño UX/UI</span></label>
-              <label><input type="checkbox" name="extra" value="api"><span>Integraciones y APIs</span></label>
-              <label><input type="checkbox" name="extra" value="admin"><span>Panel de administración</span></label>
-              <label><input type="checkbox" name="extra" value="ai"><span>Funciones con IA</span></label>
-              <label><input type="checkbox" name="extra" value="care"><span>Soporte posterior</span></label>
-            </fieldset>
-          </form>
-          <div class="blueprint">
-            <svg viewBox="0 0 300 200" role="img" aria-label="Diagrama de los módulos de tu proyecto" id="bp">
-              <g class="n on" data-k="ui"><line x1="150" y1="102" x2="45" y2="60"/><circle cx="45" cy="60" r="9"/><text x="45" y="42">Interfaz</text></g>
-              <g class="n" data-k="design"><line x1="150" y1="102" x2="150" y2="25"/><circle cx="150" cy="25" r="9"/><text x="150" y="10">Diseño</text></g>
-              <g class="n" data-k="api"><line x1="150" y1="102" x2="255" y2="60"/><circle cx="255" cy="60" r="9"/><text x="255" y="42">APIs</text></g>
-              <g class="n" data-k="admin"><line x1="150" y1="102" x2="45" y2="150"/><circle cx="45" cy="150" r="9"/><text x="45" y="178">Panel</text></g>
-              <g class="n" data-k="ai"><line x1="150" y1="102" x2="255" y2="150"/><circle cx="255" cy="150" r="9"/><text x="255" y="178">IA</text></g>
-              <g class="n" data-k="care"><line x1="150" y1="102" x2="150" y2="180"/><circle cx="150" cy="180" r="9"/><text x="150" y="168">Soporte</text></g>
-              <circle class="core" cx="150" cy="102" r="16"/><text class="core-t" x="150" y="106">Tu producto</text>
-            </svg>
-            <p class="est">Plazo orientativo <output id="est" aria-live="polite">4 a 5 semanas</output></p>
-            <p class="est-note" id="est-sum"></p>
-            <button type="button" class="btn magnetic" id="cfg-send">Enviar esta configuración</button>
+      </nav>
+    </header>
+    <main id="contenido">
+      <section class="hero container" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="status-dot" aria-hidden="true"></span> ESTUDIO DE
+            DESARROLLO DIGITAL · PERÚ
+          </p>
+          <h1 id="hero-title">
+            Tu negocio,<br />en su próxima<br /><span>versión.</span>
+          </h1>
+          <p class="hero-description">
+            Páginas web que te presentan. Apps Android que simplifican tareas.
+            Bases de datos que ponen tu información en orden.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#contacto"
+              >Cuéntanos tu idea <span aria-hidden="true">↗</span></a
+            ><a class="text-link" href="#servicios"
+              >Encuentra tu solución <span aria-hidden="true">↓</span></a
+            >
+          </div>
+          <div class="hero-note">
+            <span class="small-index">01 — 03</span
+            ><span
+              >Diseño y desarrollo.<br />Con un propósito claro: que te
+              sirva.</span
+            >
           </div>
         </div>
+        <div
+          class="hero-art"
+          aria-label="Ilustración de una página web, una app Android y una base de datos conectadas"
+          role="img"
+        >
+          <div class="art-grid"></div>
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="art-label art-label-top">
+            <span class="status-dot"></span> DE LA IDEA A LA PANTALLA
+          </div>
+          <div class="art-window">
+            <div class="window-top">
+              <span class="window-dots"><i></i><i></i><i></i></span
+              ><span>tu próximo proyecto</span><span>↗</span>
+            </div>
+            <div class="window-content">
+              <div class="mock-nav">
+                <span class="mock-brand">a<span>↗</span></span
+                ><span>Inicio &nbsp; Servicios &nbsp; Contacto</span>
+              </div>
+              <p>UNA IDEA. MUCHAS POSIBILIDADES.</p>
+              <div class="mock-headline">
+                Hecho para<br />dar el siguiente<br /><span>paso.</span>
+              </div>
+              <div class="mock-cta">Conoce más <span>↗</span></div>
+              <div class="mock-lines"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="art-phone">
+            <div class="phone-camera"></div>
+            <div class="phone-content">
+              <span class="phone-greeting">Tu negocio, a mano</span
+              ><strong>Hola, equipo<span>✦</span></strong>
+              <div class="phone-summary">
+                <small>VISTA GENERAL</small><b>Todo en orden.</b>
+                <div class="mini-bars">
+                  <i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+              </div>
+              <div class="phone-row">
+                <span>↗</span>
+                <div>Pedidos<small>Organiza tu día</small></div>
+                <b>›</b>
+              </div>
+              <div class="phone-row">
+                <span>▤</span>
+                <div>Inventario<small>La información, al día</small></div>
+                <b>›</b>
+              </div>
+              <div class="phone-bottom">
+                <span>⌂</span><span>▥</span><span>○</span>
+              </div>
+            </div>
+          </div>
+          <div class="art-data">
+            <span class="data-icon">▤</span>
+            <div>
+              <small>EL PUNTO DE CONEXIÓN</small
+              ><strong>Tus datos. Organizados.</strong>
+            </div>
+            <span class="connection-dot"></span>
+          </div>
+          <div class="art-caption">
+            WEB <span>+</span> ANDROID <span>+</span> DATOS
+          </div>
+        </div>
+      </section>
+      <div class="service-strip">
+        <div class="container strip-inner">
+          <span>TECNOLOGÍA CON DIRECCIÓN</span>
+          <p>
+            Una presencia propia.<i>↗</i> Una operación más simple.<i>↗</i>
+            Información conectada.
+          </p>
+        </div>
       </div>
-    </section>
 
-    <section id="proceso" class="section section-alt">
-      <div class="container">
-        <h2>Cómo trabajamos</h2>
-        <ol class="steps" id="steps">
-          <li><h3>Entender</h3><p>Escuchamos el problema y definimos qué debe lograr el producto.</p></li>
-          <li><h3>Diseñar</h3><p>Prototipamos y validamos la experiencia antes de escribir código.</p></li>
-          <li><h3>Construir</h3><p>Desarrollamos por entregas cortas que puedes probar y comentar.</p></li>
-          <li><h3>Lanzar</h3><p>Publicamos, medimos y seguimos mejorando contigo.</p></li>
+      <section
+        class="section container"
+        id="servicios"
+        aria-labelledby="services-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 / LO QUE HACEMOS</p>
+            <h2 id="services-title">Tres caminos.<br />Tu siguiente paso.</h2>
+          </div>
+          <p>
+            No todo negocio necesita lo mismo.<br />Empezamos por lo que quieres
+            resolver.
+          </p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="card-top">
+              <span class="service-symbol" aria-hidden="true">&lt;/&gt;</span
+              ><span class="small-index">01</span>
+            </div>
+            <h3>Páginas web</h3>
+            <p>
+              Un espacio propio para presentar tu negocio, explicar lo que
+              ofreces y convertir visitas en conversaciones.
+            </p>
+            <ul>
+              <li>Webs para negocios y emprendimientos</li>
+              <li>Landing pages para tus servicios</li>
+              <li>Diseño adaptable a celular y escritorio</li>
+            </ul>
+            <a class="service-link" href="#contacto" data-service="web"
+              >Quiero una página web <span aria-hidden="true">↗</span></a
+            >
+          </article>
+          <article class="service-card">
+            <div class="card-top">
+              <span class="service-symbol" aria-hidden="true">▯</span
+              ><span class="small-index">02</span>
+            </div>
+            <h3>Apps Android</h3>
+            <p>
+              Lleva una tarea de tu negocio al celular: registrar pedidos,
+              consultar información o acompañar a tus clientes.
+            </p>
+            <ul>
+              <li>Aplicaciones a medida para Android</li>
+              <li>Pantallas claras y fáciles de usar</li>
+              <li>Conexión con tus sistemas y datos</li>
+            </ul>
+            <a class="service-link" href="#contacto" data-service="android"
+              >Quiero una app Android <span aria-hidden="true">↗</span></a
+            >
+          </article>
+          <article class="service-card">
+            <div class="card-top">
+              <span class="service-symbol" aria-hidden="true">▤</span
+              ><span class="small-index">03</span>
+            </div>
+            <h3>Bases de datos</h3>
+            <p>
+              Dale estructura a la información que mueve tu negocio para
+              consultarla, relacionarla y usarla en tus aplicaciones.
+            </p>
+            <ul>
+              <li>Diseño de tablas y relaciones</li>
+              <li>Consultas y organización de información</li>
+              <li>Integración con páginas web y apps</li>
+            </ul>
+            <a class="service-link" href="#contacto" data-service="datos"
+              >Quiero ordenar mis datos <span aria-hidden="true">↗</span></a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="explore-section section"
+        id="explora"
+        aria-labelledby="explore-title"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">02 / IMAGINA LO QUE VIENE</p>
+              <h2 id="explore-title">Así podría tomar<br />forma tu idea.</h2>
+            </div>
+            <p>
+              Explora tres ejemplos de lo que podemos construir.<br />Son
+              conceptos ilustrativos, no proyectos de clientes.
+            </p>
+          </div>
+          <div class="explorer">
+            <div
+              class="example-tabs"
+              role="tablist"
+              aria-label="Ejemplos de soluciones"
+            >
+              <button
+                id="tab-web"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="panel-web"
+              >
+                01 <span>Una web para tu negocio</span
+                ><span aria-hidden="true">↗</span>
+              </button>
+              <button
+                id="tab-android"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-android"
+                tabindex="-1"
+              >
+                02 <span>Tu operación en Android</span
+                ><span aria-hidden="true">↗</span>
+              </button>
+              <button
+                id="tab-datos"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-datos"
+                tabindex="-1"
+              >
+                03 <span>Información conectada</span
+                ><span aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <div
+              class="example-panel"
+              id="panel-web"
+              role="tabpanel"
+              aria-labelledby="tab-web"
+              tabindex="0"
+            >
+              <div class="example-copy">
+                <span class="example-tag">CONCEPTO / PÁGINA WEB</span>
+                <h3>Que te conozcan.<br />Que te contacten.</h3>
+                <p>
+                  Una página para un negocio de servicios: presenta lo que
+                  haces, responde preguntas y facilita que un posible cliente te
+                  escriba.
+                </p>
+                <div class="example-features">
+                  <span>Presentación</span><span>Servicios</span
+                  ><span>Contacto</span>
+                </div>
+                <a class="text-link" href="#contacto" data-service="web"
+                  >Hablemos de tu web <span aria-hidden="true">↗</span></a
+                >
+              </div>
+              <div
+                class="demo-web demo-visual"
+                aria-label="Maqueta ilustrativa de una web de servicios"
+              >
+                <div class="demo-browser">
+                  <span>● ● ●</span><span>tu negocio</span><span>↗</span>
+                </div>
+                <div class="demo-site">
+                  <div class="demo-site-nav">
+                    <b>estudio<span> /</span></b
+                    ><span>Nosotros &nbsp; Contacto</span>
+                  </div>
+                  <small>IDEAS QUE SE VUELVEN ESPACIOS</small
+                  ><strong
+                    >Un lugar para<br />lo que imaginas<span>.</span></strong
+                  >
+                  <div class="demo-site-bottom">
+                    <span>Conoce nuestro trabajo ↗</span>
+                    <div class="architecture"><i></i><i></i><i></i></div>
+                  </div>
+                </div>
+                <p class="demo-caption">EJEMPLO VISUAL · NO ES UN SITIO REAL</p>
+              </div>
+            </div>
+            <div
+              class="example-panel"
+              id="panel-android"
+              role="tabpanel"
+              aria-labelledby="tab-android"
+              tabindex="0"
+              hidden
+            >
+              <div class="example-copy">
+                <span class="example-tag">CONCEPTO / APP ANDROID</span>
+                <h3>Menos pasos.<br />Más control.</h3>
+                <p>
+                  Una app para registrar pedidos desde el celular, consultar su
+                  estado y mantener la información del equipo en un mismo lugar.
+                </p>
+                <div class="example-features">
+                  <span>Pedidos</span><span>Estados</span
+                  ><span>Consulta móvil</span>
+                </div>
+                <a class="text-link" href="#contacto" data-service="android"
+                  >Hablemos de tu app <span aria-hidden="true">↗</span></a
+                >
+              </div>
+              <div class="demo-android demo-visual">
+                <div class="android-device">
+                  <div class="android-status">9:41 <span>● ▰</span></div>
+                  <div class="android-head">
+                    <small>MI NEGOCIO</small
+                    ><strong>Mis pedidos <span>＋</span></strong>
+                  </div>
+                  <div class="android-filter">
+                    Todos <span>En proceso</span> Entregados
+                  </div>
+                  <div class="order">
+                    <span class="order-icon">▣</span>
+                    <div>
+                      <b>Pedido de ejemplo A</b
+                      ><small>Productos de catálogo</small>
+                    </div>
+                    <span class="order-status">En proceso</span>
+                  </div>
+                  <div class="order">
+                    <span class="order-icon">▣</span>
+                    <div>
+                      <b>Pedido de ejemplo B</b
+                      ><small>Servicio personalizado</small>
+                    </div>
+                    <span class="order-status done">Entregado</span>
+                  </div>
+                  <div class="android-note">
+                    La información que necesitas,<br />cuando la necesitas.
+                  </div>
+                  <div class="android-bottom">⌂ <span>Pedidos</span> ○</div>
+                </div>
+                <p class="demo-caption">
+                  MAQUETA ILUSTRATIVA · DATOS DE EJEMPLO
+                </p>
+              </div>
+            </div>
+            <div
+              class="example-panel"
+              id="panel-datos"
+              role="tabpanel"
+              aria-labelledby="tab-datos"
+              tabindex="0"
+              hidden
+            >
+              <div class="example-copy">
+                <span class="example-tag">CONCEPTO / BASE DE DATOS</span>
+                <h3>Cada dato,<br />en su lugar.</h3>
+                <p>
+                  Una estructura que relaciona clientes, pedidos y productos. La
+                  base para consultar información consistente desde tu web o
+                  aplicación.
+                </p>
+                <div class="example-features">
+                  <span>Relaciones</span><span>Consultas</span
+                  ><span>Integración</span>
+                </div>
+                <a class="text-link" href="#contacto" data-service="datos"
+                  >Hablemos de tus datos <span aria-hidden="true">↗</span></a
+                >
+              </div>
+              <div class="demo-data demo-visual">
+                <div class="db-table">
+                  <h4><span>▤</span> clientes</h4>
+                  <p><b>PK</b> id_cliente <small>integer</small></p>
+                  <p><span>―</span> nombre <small>text</small></p>
+                  <p><span>―</span> correo <small>text</small></p>
+                </div>
+                <div class="db-connector">
+                  <span>1</span><i></i><span>N</span>
+                </div>
+                <div class="db-table">
+                  <h4><span>▤</span> pedidos</h4>
+                  <p><b>PK</b> id_pedido <small>integer</small></p>
+                  <p><b>FK</b> id_cliente <small>integer</small></p>
+                  <p><span>―</span> estado <small>text</small></p>
+                </div>
+                <p class="demo-caption">
+                  MODELO SIMPLIFICADO · RELACIÓN CLIENTE / PEDIDOS
+                </p>
+              </div>
+            </div>
+          </div>
+          <noscript
+            ><p class="noscript-note">
+              Los ejemplos de Android y bases de datos se muestran con
+              JavaScript. Encontrarás los tres servicios y el formulario de
+              contacto disponibles igualmente.
+            </p></noscript
+          >
+        </div>
+      </section>
+
+      <section
+        class="section container"
+        id="proceso"
+        aria-labelledby="process-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 / UN PROCESO CLARO</p>
+            <h2 id="process-title">
+              De “tengo una idea”<br />a “ya está en marcha”.
+            </h2>
+          </div>
+          <p>
+            Primero entendemos el problema.<br />Después elegimos cómo construir
+            la solución.
+          </p>
+        </div>
+        <ol class="process-grid">
+          <li>
+            <span>01 / CONVERSAMOS</span>
+            <h3>Entender tu negocio</h3>
+            <p>
+              Qué necesitas resolver, quién lo va a usar y qué sería un buen
+              resultado para ti.
+            </p>
+          </li>
+          <li>
+            <span>02 / DEFINIMOS</span>
+            <h3>Acordar lo esencial</h3>
+            <p>
+              Definimos pantallas, funciones, alcance y propuesta antes de
+              comenzar el desarrollo.
+            </p>
+          </li>
+          <li>
+            <span>03 / CONSTRUIMOS</span>
+            <h3>Ver cómo avanza</h3>
+            <p>
+              Diseñamos y desarrollamos con revisiones para que puedas probar y
+              dar tu opinión.
+            </p>
+          </li>
+          <li>
+            <span>04 / ENTREGAMOS</span>
+            <h3>Ponerlo en marcha</h3>
+            <p>
+              Revisamos el funcionamiento y coordinamos la publicación o entrega
+              según el proyecto.
+            </p>
+          </li>
         </ol>
-      </div>
-    </section>
-
-    <section id="faq" class="section">
-      <div class="container split">
-        <h2>Preguntas frecuentes</h2>
-        <div class="faq">
-          <details><summary>¿Cuánto tarda un proyecto?</summary><p>Depende del alcance. Un primer prototipo navegable suele estar listo en pocas semanas y entregamos versiones usables de forma continua.</p></details>
-          <details><summary>¿Trabajan con emprendimientos pequeños?</summary><p>Sí. Empezamos por lo esencial y escalamos contigo, para que la inversión inicial sea la justa.</p></details>
-          <details><summary>¿El código y el diseño son míos?</summary><p>Sí. Al terminar recibes el código fuente, los archivos de diseño y la documentación.</p></details>
-          <details><summary>¿Ofrecen soporte después del lanzamiento?</summary><p>Sí. Medimos, corregimos y seguimos mejorando el producto con planes de mantenimiento.</p></details>
-          <details><summary>¿Cómo empezamos?</summary><p>Escríbenos con una breve descripción de tu idea. Te respondemos en uno o dos días hábiles y agendamos una llamada.</p></details>
+        <div class="principle">
+          <span aria-hidden="true">↗</span>
+          <p>
+            La mejor tecnología es la que<br /><strong
+              >resuelve algo para tu negocio.</strong
+            >
+          </p>
+          <span class="principle-sign"
+            >AXON STUDIOS<br />DISEÑO + DESARROLLO</span
+          >
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contacto" class="section section-alt">
-      <div class="container split">
+      <section
+        class="faq-section section container"
+        id="preguntas"
+        aria-labelledby="faq-title"
+      >
         <div>
-          <h2>¿Listos para empezar?</h2>
-          <p class="lead">Cuéntanos qué quieres construir. Te respondemos en uno o dos días hábiles.</p>
+          <p class="eyebrow">ANTES DE EMPEZAR</p>
+          <h2 id="faq-title">Buenas preguntas.<br />Respuestas claras.</h2>
         </div>
-        <form id="contact-form" class="contact-form" action="https://formsubmit.co/5473c1bcf66cecbf981bb3fac3f8a6ae" method="POST" enctype="multipart/form-data" novalidate>
-          <input type="hidden" name="_subject" value="Nueva consulta desde Axon Studios">
-          <p class="form-eyebrow">INICIEMOS UNA CONVERSACIÓN</p>
-          <label for="email">Correo electrónico</label>
-          <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@correo.com" required>
-          <label for="message">Tu proyecto</label>
-          <textarea id="message" name="message" placeholder="Cuéntanos qué quieres crear, en qué etapa está y qué te gustaría lograr." required></textarea>
-          <label for="attachment">Archivo de referencia (opcional)</label>
-          <div class="file-upload">
-            <input class="file-input" id="attachment" name="attachment" type="file" accept=".doc,.docx,.pdf,.ppt,.pptx,image/*" aria-describedby="attachment-help">
-            <label class="file-picker" for="attachment">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v5h14v-5"/></svg>
-              <span>Elegir archivo</span>
-            </label>
-            <span class="file-name" id="attachment-name" aria-live="polite">Ningún archivo seleccionado</span>
-            <button class="file-remove" id="attachment-clear" type="button" aria-label="Quitar archivo" hidden>Quitar</button>
+        <div class="faq-list">
+          <details>
+            <summary>
+              No sé si necesito una web o una app. ¿Me ayudan?<span
+                aria-hidden="true"
+                >＋</span
+              >
+            </summary>
+            <p>
+              Sí. Cuéntanos qué necesitas resolver y cómo trabajas hoy. Podemos
+              definir contigo si conviene empezar con una página web, una app
+              Android o con la organización de tus datos.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Cuánto cuesta y cuánto demora?<span aria-hidden="true">＋</span>
+            </summary>
+            <p>
+              Depende de las funciones, el contenido disponible y las
+              integraciones. Después de entender tu proyecto, acordamos alcance,
+              presupuesto y plazo en una propuesta. No necesitas tener todo
+              definido para escribirnos.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Mi página se podrá ver desde un celular?<span aria-hidden="true"
+                >＋</span
+              >
+            </summary>
+            <p>
+              Sí. Diseñamos las páginas para adaptarse a diferentes tamaños de
+              pantalla y revisamos su uso en celular y escritorio.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Las aplicaciones son para Android o también iPhone?<span
+                aria-hidden="true"
+                >＋</span
+              >
+            </summary>
+            <p>
+              Por ahora nos enfocamos en aplicaciones Android. Si también
+              necesitas llegar a usuarios de iPhone, conversemos sobre el
+              alcance y las alternativas antes de definir el proyecto.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Pueden trabajar con una base de datos que ya tengo?<span
+                aria-hidden="true"
+                >＋</span
+              >
+            </summary>
+            <p>
+              Podemos revisar su estructura y lo que necesitas cambiar o
+              conectar. La viabilidad y el trabajo necesario se definen después
+              de esa revisión. Para la primera consulta no envíes contraseñas ni
+              datos privados.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Qué pasa con el hosting, el código y el soporte?<span
+                aria-hidden="true"
+                >＋</span
+              >
+            </summary>
+            <p>
+              La propuesta debe detallar qué archivos y accesos se entregan,
+              quién administra el hosting o la publicación, sus costos y si se
+              incluye mantenimiento. Lo acordamos antes de empezar para que
+              tengas claro qué estás contratando.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section
+        class="contact-section section"
+        id="contacto"
+        aria-labelledby="contact-title"
+      >
+        <div class="container contact-grid">
+          <div class="contact-copy">
+            <p class="eyebrow">
+              <span class="status-dot" aria-hidden="true"></span> CONSTRUYAMOS
+              LO QUE SIGUE
+            </p>
+            <h2 id="contact-title">
+              Tu próxima<br />versión empieza<br /><span>con una idea.</span>
+            </h2>
+            <p>
+              No hace falta un documento técnico.<br />Cuéntanos qué quieres
+              hacer y qué te gustaría mejorar.
+            </p>
+            <div class="contact-location">
+              <span aria-hidden="true">↗</span
+              ><span
+                >Desde Lima, Perú.<br />Conversemos sobre tu proyecto.</span
+              >
+            </div>
           </div>
-          <small class="file-help" id="attachment-help">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 6v5c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
-            <span>Word, PDF, PowerPoint o imágenes</span>
-            <span class="file-limit">Máximo 10 MB por envío</span>
-          </small>
-          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-          <button type="submit" class="btn magnetic">Enviar consulta</button>
-        </form>
+          <form
+            class="contact-form"
+            id="contact-form"
+            action="https://formsubmit.co/5473c1bcf66cecbf981bb3fac3f8a6ae"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="Nueva consulta desde Axon Studios"
+            />
+            <label for="service">¿Qué necesitas?</label
+            ><select id="service" name="servicio">
+              <option value="">Quiero orientación</option>
+              <option value="web">Una página web</option>
+              <option value="android">Una app Android</option>
+              <option value="datos">Una base de datos</option>
+              <option value="combinado">Combinar varios servicios</option>
+            </select>
+            <label for="email"
+              >Tu correo electrónico
+              <span class="required-note">(obligatorio)</span></label
+            ><input
+              id="email"
+              type="email"
+              name="email"
+              autocomplete="email"
+              placeholder="tu@correo.com"
+              required
+              maxlength="254"
+            />
+            <label for="message"
+              >Cuéntanos tu idea
+              <span class="required-note">(obligatorio)</span></label
+            ><textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="¿A qué se dedica tu negocio y qué necesitas resolver?"
+              required
+              maxlength="5000"
+            ></textarea>
+            <label for="attachment"
+              >¿Tienes una referencia?
+              <span class="required-note">(opcional)</span></label
+            ><input
+              id="attachment"
+              name="attachment"
+              type="file"
+              accept=".doc,.docx,.pdf,.ppt,.pptx,.jpg,.jpeg,.png,.webp"
+              aria-describedby="file-help"
+            /><small id="file-help"
+              >PDF, Word, PowerPoint, JPG, PNG o WebP. Máximo 10 MB.</small
+            >
+            <p class="privacy-note">
+              Usaremos tu correo y mensaje para responder esta consulta. El
+              envío se procesa mediante
+              <a
+                href="https://formsubmit.co/privacy.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >FormSubmit (privacidad, abre otra pestaña)</a
+              >. No adjuntes contraseñas ni información sensible.
+            </p>
+            <p
+              id="form-status"
+              class="form-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+            <button class="button" type="submit">
+              Enviar mi consulta <span aria-hidden="true">↗</span></button
+            ><small class="form-footnote"
+              >Revisaremos tu idea para definir juntos el siguiente paso.</small
+            >
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer container">
+      <div class="footer-top">
+        <a
+          class="logo"
+          href="#inicio"
+          aria-label="Axon Studios, volver al inicio"
+          ><img src="img/4 (1).png" alt="" width="30" height="30" /><span
+            >axon<span class="logo-light"> studios</span
+            ><span class="logo-dot">.</span></span
+          ></a
+        >
+        <p>Páginas web. Apps Android. Bases de datos.</p>
+        <a class="text-link" href="#inicio"
+          >Volver arriba <span aria-hidden="true">↑</span></a
+        >
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container foot">
-      <div><strong class="foot-logo">axon<em> studios</em></strong><p>Estudio de tecnología y diseño.</p></div>
-      <nav aria-label="Pie"><a href="#servicios">Servicios</a><a href="#tecnologia">Tecnología</a><a href="#proceso">Proceso</a><a href="#faq">FAQ</a><a href="#contacto">Contacto</a></nav>
-      <p class="copy">&copy; <span id="year">2025</span> Axon Studios. Creamos lo que sigue.</p>
-    </div>
-  </footer>
-
-  <dialog id="cmd" aria-label="Buscador de comandos">
-    <input id="cmd-q" type="text" placeholder="Ir a… o escribir una acción" autocomplete="off" aria-controls="cmd-list">
-    <ul id="cmd-list" role="listbox"></ul>
-    <p class="cmd-help">Flechas para moverte, Enter para ir, Esc para cerrar</p>
-  </dialog>
-
-  <script src="script.js"></script>
-</body>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> Axon Studios</span
+        ><span>DISEÑAMOS EL SIGUIENTE PASO.</span><span>Lima, Perú</span>
+      </div>
+    </footer>
+  </body>
 </html>
