@@ -1,0 +1,30 @@
+{
+  "name": "axon-studios-web",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Axon Studios: React, Vite y una experiencia est\u00e1tica prerenderizada.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir .prerender && node scripts/prerender.mjs && node scripts/verify-build.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "motion": "^12.23.24"
+  },
+  "devDependencies": {
+    "vite": "^7.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "vitest": "^4.0.8",
+    "jsdom": "^29.0.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@testing-library/jest-dom": "^6.9.1"
+  }
+}

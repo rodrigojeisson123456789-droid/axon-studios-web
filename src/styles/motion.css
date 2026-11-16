@@ -1,0 +1,289 @@
+html[data-motion="on"] .hero-eyebrow {
+  animation: enter 0.8s both;
+}
+html[data-motion="on"] .hero h1 {
+  animation: enter 0.9s 0.05s both;
+}
+html[data-motion="on"] .hero-line,
+html[data-motion="on"] .hero-description {
+  animation: enter 0.9s 0.15s both;
+}
+html[data-motion="on"] .hero-actions {
+  animation: enter 0.9s 0.25s both;
+}
+html[data-motion="on"] .hero-mark {
+  animation: logo-float 8s ease-in-out infinite;
+}
+html[data-motion="on"] .logo-glow {
+  animation: glow-breathe 9s ease-in-out infinite alternate;
+}
+html[data-motion="on"] .orbit-outer {
+  animation: orbit-turn 40s linear infinite;
+}
+html[data-motion="on"] .signal-label {
+  animation: label-float 8s ease-in-out infinite;
+}
+html[data-motion="on"] .label-android {
+  animation-delay: -3s;
+}
+html[data-motion="on"] .label-data {
+  animation-delay: -5s;
+}
+html[data-motion="on"] .neural-links,
+html[data-motion="on"] .neural-nodes {
+  animation: network-drift 14s ease-in-out infinite alternate;
+}
+html[data-motion="on"] .rotating-words > span {
+  animation: word-turn 9s infinite;
+}
+html[data-motion="on"] .rotating-words > span:nth-child(2) {
+  animation-delay: 3s;
+}
+html[data-motion="on"] .rotating-words > span:nth-child(3) {
+  animation-delay: 6s;
+}
+html[data-motion="on"] .scroll-cue > svg {
+  animation: scroll-cue 3s ease-in-out infinite;
+}
+html[data-motion="on"] .service-card:hover .mini-browser,
+html[data-motion="on"] .service-card:focus-within .mini-browser {
+  transform: perspective(500px) rotateY(0) rotateZ(-2deg) translateY(-5px);
+}
+html[data-motion="on"] .service-card:hover .mini-device,
+html[data-motion="on"] .service-card:focus-within .mini-device {
+  transform: rotate(-4deg) translateY(-4px);
+}
+html[data-motion="on"] .service-card:hover .mini-app-chart i {
+  animation: chart-grow 1.5s ease-in-out infinite alternate;
+}
+html[data-motion="on"] .service-card:hover .mini-app-chart i:nth-child(even) {
+  animation-delay: -0.7s;
+}
+html[data-motion="on"] .service-card:hover .data-stack {
+  animation: label-float 4s ease-in-out infinite;
+}
+html[data-motion="on"] .architecture i {
+  animation: arch-rise 0.8s both;
+}
+html[data-motion="on"] .architecture i:nth-child(2) {
+  animation-delay: 0.1s;
+}
+html[data-motion="on"] .architecture i:nth-child(3) {
+  animation-delay: 0.2s;
+}
+html[data-motion="on"] .cfg-node.on path {
+  animation: blueprint-flow 10s linear infinite;
+}
+html[data-motion="on"] .cfg-core-halo {
+  animation: core-breathe 5s ease-in-out infinite alternate;
+  transform-origin: 170px 115px;
+}
+html[data-motion="on"] .contact-graphic > svg {
+  animation: contact-arrow 6s ease-in-out infinite;
+}
+html[data-motion="on"] .reveal-pending {
+  opacity: 0;
+  transform: translateY(26px);
+}
+html[data-motion="on"] .is-revealed {
+  animation: enter 0.75s var(--reveal-delay, 0ms) backwards;
+}
+.service-card:nth-child(2) {
+  --reveal-delay: 80ms;
+}
+.service-card:nth-child(3) {
+  --reveal-delay: 160ms;
+}
+.process-grid li:nth-child(2) {
+  --reveal-delay: 80ms;
+}
+.process-grid li:nth-child(3) {
+  --reveal-delay: 160ms;
+}
+.process-grid li:nth-child(4) {
+  --reveal-delay: 240ms;
+}
+html[data-motion="on"] .hero[data-active="false"] *,
+html[data-page-visible="false"] * {
+  animation-play-state: paused !important;
+}
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes logo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+@keyframes label-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -5px;
+  }
+}
+@keyframes glow-breathe {
+  from {
+    transform: scale(0.95);
+    opacity: 0.65;
+  }
+  to {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+@keyframes orbit-turn {
+  from {
+    transform: rotate(-20deg) scaleY(0.7);
+  }
+  to {
+    transform: rotate(340deg) scaleY(0.7);
+  }
+}
+@keyframes network-drift {
+  from {
+    transform: translate(-4px, 3px);
+  }
+  to {
+    transform: translate(5px, -4px);
+  }
+}
+@keyframes word-turn {
+  0%,
+  28% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  33%,
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+@keyframes chart-grow {
+  from {
+    transform: scaleY(0.75);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes arch-rise {
+  from {
+    transform: scaleY(0.6);
+    transform-origin: bottom;
+  }
+  to {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+}
+@keyframes blueprint-flow {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+@keyframes core-breathe {
+  from {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+@keyframes contact-arrow {
+  0%,
+  100% {
+    transform: rotate(-6deg) translate(0);
+  }
+  50% {
+    transform: rotate(-6deg) translate(4px, -4px);
+  }
+}
+html[data-motion="off"] {
+  scroll-behavior: auto;
+}
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+html[data-motion="off"] .reveal-pending {
+  opacity: 1;
+  transform: none;
+}
+html[data-motion="off"] .button:hover > svg,
+html[data-motion="off"] .service-link:hover > svg {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal-pending {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .rotating-words > span {
+    opacity: 0 !important;
+  }
+  .rotating-words > span:first-child {
+    opacity: 1 !important;
+  }
+  .button:hover > svg,
+  .service-link:hover > svg {
+    transform: none;
+  }
+}
+@media (forced-colors: active) {
+  .title-dot,
+  .heading-accent {
+    color: inherit;
+  }
+  .tab-highlight,
+  .pill-highlight {
+    background: Highlight;
+  }
+  .example-tabs button[aria-selected="true"],
+  .config-pill.is-selected {
+    outline: 2px solid Highlight;
+  }
+  .cfg-node circle {
+    fill: Canvas;
+    stroke: CanvasText;
+  }
+  .cfg-node.on circle {
+    fill: Highlight;
+  }
+}
