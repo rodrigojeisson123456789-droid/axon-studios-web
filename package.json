@@ -4,7 +4,7 @@
   "private": true,
   "description": "Sitio estático de Axon Studios. No requiere compilación.",
   "scripts": {
-    "test": "node --check script.js && node --test tests/site.test.cjs"
+    "test": "node --check script.js && node --check motion.js && node --test tests/site.test.cjs"
   },
   "devDependencies": {
     "jsdom": "^29.0.0"

@@ -44,6 +44,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+    <script src="motion.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -84,7 +85,7 @@
             DESARROLLO DIGITAL · PERÚ
           </p>
           <h1 id="hero-title">
-            Tu negocio,<br />en su próxima<br /><span>versión.</span>
+            Tu negocio.<br />Su próxima<br /><span>versión.</span>
           </h1>
           <p class="hero-description">
             Páginas web que te presentan. Apps Android que simplifican tareas.
@@ -104,6 +105,10 @@
               sirva.</span
             >
           </div>
+          <button class="motion-toggle" id="motion-toggle" type="button" hidden>
+            <span class="motion-icon" aria-hidden="true">Ⅱ</span
+            ><span class="motion-label">Pausar animaciones</span>
+          </button>
         </div>
         <div
           class="hero-art"
@@ -111,6 +116,38 @@
           role="img"
         >
           <div class="art-grid"></div>
+          <div class="hero-aura" aria-hidden="true"></div>
+          <svg
+            class="signal-paths"
+            viewBox="0 0 600 600"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <defs>
+              <linearGradient id="signal-gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="#7fcaff" />
+                <stop offset="1" stop-color="#4260ff" />
+              </linearGradient>
+            </defs>
+            <g class="signal-lines">
+              <path d="M80 100H405Q440 100 440 140V450Q440 490 400 490H150" />
+              <path d="M100 390V190Q100 160 130 160H500" />
+              <path d="M170 520H460Q510 520 510 470V240" />
+            </g>
+            <g class="signal-packets">
+              <path d="M80 100H405Q440 100 440 140V450Q440 490 400 490H150" />
+              <path d="M100 390V190Q100 160 130 160H500" />
+              <path d="M170 520H460Q510 520 510 470V240" />
+            </g>
+            <g class="signal-points">
+              <circle cx="80" cy="100" r="4" />
+              <circle cx="500" cy="160" r="4" />
+              <circle cx="170" cy="520" r="4" />
+            </g>
+          </svg>
+          <span class="art-coordinate" aria-hidden="true">AX / 001</span>
+          <span class="art-spark spark-one" aria-hidden="true">✳</span>
+          <span class="art-spark spark-two" aria-hidden="true">＋</span>
           <div class="art-orbit orbit-one"></div>
           <div class="art-orbit orbit-two"></div>
           <div class="art-label art-label-top">
@@ -204,6 +241,16 @@
               <span class="service-symbol" aria-hidden="true">&lt;/&gt;</span
               ><span class="small-index">01</span>
             </div>
+            <div class="service-visual visual-web" aria-hidden="true">
+              <div class="mini-browser">
+                <div class="mini-toolbar"><i></i><i></i><i></i></div>
+                <div class="mini-layout">
+                  <div><b></b><b></b><span></span></div>
+                  <div class="mini-picture"><i></i></div>
+                </div>
+              </div>
+              <span class="visual-caption">DE TU IDEA A SU PRIMER CLIC</span>
+            </div>
             <h3>Páginas web</h3>
             <p>
               Un espacio propio para presentar tu negocio, explicar lo que
@@ -223,6 +270,19 @@
               <span class="service-symbol" aria-hidden="true">▯</span
               ><span class="small-index">02</span>
             </div>
+            <div class="service-visual visual-android" aria-hidden="true">
+              <div class="mini-device">
+                <div class="mini-notch"></div>
+                <div class="mini-app-header"></div>
+                <div class="mini-app-row"><i></i><span></span></div>
+                <div class="mini-app-row"><i></i><span></span></div>
+                <div class="mini-app-row"><i></i><span></span></div>
+              </div>
+              <div class="mini-notification">
+                <span>✓</span> Todo, más simple.
+              </div>
+              <span class="visual-caption">TU NEGOCIO VA CONTIGO</span>
+            </div>
             <h3>Apps Android</h3>
             <p>
               Lleva una tarea de tu negocio al celular: registrar pedidos,
@@ -241,6 +301,14 @@
             <div class="card-top">
               <span class="service-symbol" aria-hidden="true">▤</span
               ><span class="small-index">03</span>
+            </div>
+            <div class="service-visual visual-data" aria-hidden="true">
+              <div class="data-stack"><i></i><i></i><i></i></div>
+              <div class="data-branches"><i></i><i></i><i></i></div>
+              <div class="data-nodes">
+                <span>WEB</span><span>APP</span><span>API</span>
+              </div>
+              <span class="visual-caption">CADA PIEZA, CONECTADA</span>
             </div>
             <h3>Bases de datos</h3>
             <p>

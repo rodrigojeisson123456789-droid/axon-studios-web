@@ -7,15 +7,64 @@ const root = path.join(__dirname, "..");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const script = fs.readFileSync(path.join(root, "script.js"), "utf8");
 
-function setup() {
+const motion = fs.readFileSync(path.join(root, "motion.js"), "utf8");
+
+function setup(options = {}) {
   const dom = new JSDOM(html, {
     url: "https://axon.example/",
     runScripts: "outside-only",
   });
   const window = dom.window;
-  window.matchMedia = () => ({ matches: false, addEventListener() {} });
+  const listeners = [];
+  const preference = {
+    matches: Boolean(options.reduced),
+    addEventListener(type, callback) {
+      listeners.push(callback);
+    },
+  };
+  window.matchMedia = (query) =>
+    query.includes("prefers-reduced-motion")
+      ? preference
+      : { matches: false, addEventListener() {} };
+  if (options.paused) window.localStorage.setItem("axon-motion", "paused");
+  if (options.storageUnavailable)
+    Object.defineProperty(window, "localStorage", {
+      get() {
+        throw new Error("Storage blocked");
+      },
+    });
+  const observers = [];
+  if (options.observer) {
+    window.HTMLElement.prototype.getBoundingClientRect = () => ({ top: 2000 });
+    window.IntersectionObserver = class {
+      constructor(callback) {
+        this.callback = callback;
+        this.targets = new Set();
+        observers.push(this);
+      }
+      observe(target) {
+        this.targets.add(target);
+      }
+      unobserve(target) {
+        this.targets.delete(target);
+      }
+      disconnect() {
+        this.targets.clear();
+      }
+    };
+  }
   window.eval(script);
-  return { dom, window, document: window.document };
+  window.eval(motion);
+  return {
+    dom,
+    window,
+    document: window.document,
+    observers,
+    setReduced(value) {
+      preference.matches = value;
+      listeners.forEach((callback) => callback());
+    },
+  };
 }
 
 function validForm(document) {
@@ -243,5 +292,87 @@ test("Envío: errores HTTP, del proveedor, de red y timeout conservan el mensaje
     }
   } finally {
     dom.window.close();
+  }
+});
+
+test("Animations: pause persists and resumes; unavailable observers leave content visible", () => {
+  const { dom, document, window } = setup();
+  try {
+    const toggle = document.querySelector("#motion-toggle");
+    assert.equal(document.documentElement.dataset.motion, "on");
+    assert.equal(toggle.hidden, false);
+    assert.equal(document.querySelectorAll(".reveal-pending").length, 0);
+    toggle.click();
+    assert.equal(document.documentElement.dataset.motion, "off");
+    assert.equal(window.localStorage.getItem("axon-motion"), "paused");
+    assert.match(toggle.textContent, /Activar/);
+    toggle.click();
+    assert.equal(document.documentElement.dataset.motion, "on");
+    assert.equal(window.localStorage.getItem("axon-motion"), "active");
+  } finally {
+    dom.window.close();
+  }
+});
+
+test("Animations: respects system preference on load and after changes", () => {
+  const { dom, document, setReduced } = setup({
+    reduced: true,
+    observer: true,
+  });
+  try {
+    assert.equal(document.documentElement.dataset.motion, "off");
+    assert.equal(document.querySelector("#motion-toggle").hidden, true);
+    assert.equal(document.querySelectorAll(".reveal-pending").length, 0);
+    setReduced(false);
+    assert.equal(document.documentElement.dataset.motion, "on");
+    assert.equal(document.querySelector("#motion-toggle").hidden, false);
+    assert.ok(document.querySelectorAll(".reveal-pending").length > 0);
+    setReduced(true);
+    assert.equal(document.documentElement.dataset.motion, "off");
+    assert.equal(document.querySelectorAll(".reveal-pending").length, 0);
+  } finally {
+    dom.window.close();
+  }
+});
+
+test("Animations: stages below-fold sections, reveals at intersection or focus and clears when paused", () => {
+  const { dom, document, observers } = setup({ observer: true });
+  try {
+    const target = document.querySelector(".service-card");
+    assert.ok(target.classList.contains("reveal-pending"));
+    observers[0].callback([{ target, isIntersecting: true }]);
+    assert.equal(target.classList.contains("reveal-pending"), false);
+    assert.ok(target.classList.contains("is-revealed"));
+    assert.equal(observers[0].targets.has(target), false);
+    const form = document.querySelector(".contact-form");
+    document.querySelector("#email").focus();
+    assert.equal(form.classList.contains("reveal-pending"), false);
+    const art = document.querySelector(".hero-art");
+    observers[1].callback([{ target: art, isIntersecting: false }]);
+    assert.equal(art.dataset.active, "false");
+    document.querySelector("#motion-toggle").click();
+    assert.equal(document.querySelectorAll(".reveal-pending").length, 0);
+    assert.equal(observers[0].targets.size, 0);
+    assert.equal(observers[1].targets.size, 0);
+  } finally {
+    dom.window.close();
+  }
+});
+
+test("Animations: restores manual pause and tolerates blocked storage", () => {
+  const paused = setup({ paused: true, observer: true });
+  try {
+    assert.equal(paused.document.documentElement.dataset.motion, "off");
+    assert.equal(paused.document.querySelectorAll(".reveal-pending").length, 0);
+  } finally {
+    paused.dom.window.close();
+  }
+  const blocked = setup({ storageUnavailable: true });
+  try {
+    assert.equal(blocked.document.documentElement.dataset.motion, "on");
+    blocked.document.querySelector("#motion-toggle").click();
+    assert.equal(blocked.document.documentElement.dataset.motion, "off");
+  } finally {
+    blocked.dom.window.close();
   }
 });
