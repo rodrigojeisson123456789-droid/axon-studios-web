@@ -7,6 +7,10 @@ const root = path.join(__dirname, "..");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const script = fs.readFileSync(path.join(root, "script.js"), "utf8");
 
+const configurator = fs.readFileSync(
+  path.join(root, "configurator.js"),
+  "utf8",
+);
 const motion = fs.readFileSync(path.join(root, "motion.js"), "utf8");
 
 function setup(options = {}) {
@@ -55,6 +59,7 @@ function setup(options = {}) {
   }
   window.eval(script);
   window.eval(motion);
+  window.eval(configurator);
   return {
     dom,
     window,
@@ -100,7 +105,11 @@ test("HTML: IDs únicos, enlaces internos, archivos y etiquetas de campos válid
     for (const field of document.querySelectorAll(
       'input:not([type="hidden"]), textarea, select',
     )) {
-      assert.ok(document.querySelector(`label[for="${field.id}"]`), field.id);
+      assert.ok(
+        field.closest("label") ||
+          document.querySelector(`label[for="${field.id}"]`),
+        field.id,
+      );
     }
     for (const image of document.querySelectorAll("img"))
       assert.ok(image.hasAttribute("alt"));
@@ -246,7 +255,7 @@ test("Envío: evita duplicados y solo confirma éxito cuando el proveedor lo con
     submit(window, form);
     submit(window, form);
     assert.equal(calls, 1);
-    assert.equal(form.querySelector("button").disabled, true);
+    assert.equal(form.querySelector('[type="submit"]').disabled, true);
     finish({ ok: true, json: async () => ({ success: "true" }) });
     await settle();
     assert.equal(
@@ -254,7 +263,7 @@ test("Envío: evita duplicados y solo confirma éxito cuando el proveedor lo con
       "success",
     );
     assert.equal(document.querySelector("#message").value, "");
-    assert.equal(form.querySelector("button").disabled, false);
+    assert.equal(form.querySelector('[type="submit"]').disabled, false);
   } finally {
     dom.window.close();
   }
@@ -287,7 +296,11 @@ test("Envío: errores HTTP, del proveedor, de red y timeout conservan el mensaje
         original,
         response,
       );
-      assert.equal(form.querySelector("button").disabled, false, response);
+      assert.equal(
+        form.querySelector('[type="submit"]').disabled,
+        false,
+        response,
+      );
       assert.equal(form.hasAttribute("aria-busy"), false, response);
     }
   } finally {
@@ -374,5 +387,102 @@ test("Animations: restores manual pause and tolerates blocked storage", () => {
     assert.equal(blocked.document.documentElement.dataset.motion, "off");
   } finally {
     blocked.dom.window.close();
+  }
+});
+
+test("Configurador: referencia inicial, selección de módulos y soporte sin semanas adicionales", () => {
+  const { dom, document } = setup();
+  try {
+    const cfg = document.querySelector("#cfg");
+    assert.equal(
+      document.querySelector("#cfg-est").textContent,
+      "3 a 5 semanas",
+    );
+    assert.ok(
+      document.querySelector("[data-module=ui]").classList.contains("on"),
+    );
+    cfg.querySelector("[value=api]").click();
+    assert.ok(
+      document.querySelector("[data-module=api]").classList.contains("on"),
+    );
+    const estimate = document.querySelector("#cfg-est").textContent;
+    assert.notEqual(estimate, "3 a 5 semanas");
+    cfg.querySelector("[value=care]").click();
+    assert.equal(document.querySelector("#cfg-est").textContent, estimate);
+    cfg.querySelector("[value=db]").click();
+    cfg.querySelector("[value=datos]").click();
+    assert.equal(cfg.querySelector("[value=db]").disabled, true);
+    assert.equal(cfg.querySelector("[value=db]").checked, false);
+    assert.ok(
+      document.querySelector("[data-module=db]").classList.contains("on"),
+    );
+    assert.equal(
+      document.querySelector("[data-module=ui]").classList.contains("on"),
+      false,
+    );
+    assert.match(
+      document.querySelector("#cfg-diagram").getAttribute("aria-label"),
+      /datos/,
+    );
+  } finally {
+    dom.window.close();
+  }
+});
+
+test("Configurador: Android y producto completo actualizan la referencia", () => {
+  const { dom, document } = setup();
+  try {
+    const cfg = document.querySelector("#cfg");
+    cfg.querySelector("[value=android]").click();
+    assert.equal(
+      document.querySelector("#cfg-est").textContent,
+      "7 a 10 semanas",
+    );
+    cfg.querySelector("[value=completo]").click();
+    assert.equal(
+      document.querySelector("#cfg-est").textContent,
+      "12 a 18 semanas",
+    );
+    assert.match(
+      document.querySelector("#cfg-summary").textContent,
+      /App Android, producto completo/,
+    );
+  } finally {
+    dom.window.close();
+  }
+});
+
+test("Configurador: transfiere la selección sin sobrescribir el mensaje, permite quitarla y se limpia al cambiar de servicio o enviar", () => {
+  const { dom, document, window } = setup();
+  try {
+    const form = validForm(document);
+    const original = document.querySelector("#message").value;
+    const send = document.querySelector("#cfg-send");
+    send.click();
+    assert.equal(document.querySelector("#message").value, original);
+    assert.equal(document.querySelector("#service").value, "web");
+    assert.equal(document.querySelector("#config-review").hidden, false);
+    assert.match(
+      new window.FormData(form).get("configuracion"),
+      /Página o app web/,
+    );
+    send.click();
+    assert.equal(document.querySelectorAll("#config-review").length, 1);
+    document.querySelector("#cfg-clear").click();
+    assert.equal(document.querySelector("#config-selection").value, "");
+    send.click();
+    document.querySelector("[data-service=android]").click();
+    assert.equal(document.querySelector("#config-review").hidden, true);
+    send.click();
+    const service = document.querySelector("#service");
+    service.value = "datos";
+    service.dispatchEvent(new window.Event("change"));
+    assert.equal(document.querySelector("#config-selection").value, "");
+    send.click();
+    form.reset();
+    assert.equal(document.querySelector("#config-review").hidden, true);
+    assert.equal(document.querySelector("#config-selection").value, "");
+  } finally {
+    dom.window.close();
   }
 });

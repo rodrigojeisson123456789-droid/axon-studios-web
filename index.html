@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
     <script src="motion.js" defer></script>
+    <script src="configurator.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -69,6 +70,7 @@
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#explora">Posibilidades</a></li>
           <li><a href="#proceso">Cómo trabajamos</a></li>
+          <li><a href="#configurador">Configurador</a></li>
           <li>
             <a class="nav-contact" href="#contacto"
               >Hablemos <span aria-hidden="true">↗</span></a
@@ -78,136 +80,235 @@
       </nav>
     </header>
     <main id="contenido">
-      <section class="hero container" id="inicio" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">
-            <span class="status-dot" aria-hidden="true"></span> ESTUDIO DE
-            DESARROLLO DIGITAL · PERÚ
-          </p>
-          <h1 id="hero-title">
-            Tu negocio.<br />Su próxima<br /><span>versión.</span>
-          </h1>
-          <p class="hero-description">
-            Páginas web que te presentan. Apps Android que simplifican tareas.
-            Bases de datos que ponen tu información en orden.
-          </p>
-          <div class="hero-actions">
-            <a class="button" href="#contacto"
-              >Cuéntanos tu idea <span aria-hidden="true">↗</span></a
-            ><a class="text-link" href="#servicios"
-              >Encuentra tu solución <span aria-hidden="true">↓</span></a
-            >
-          </div>
-          <div class="hero-note">
-            <span class="small-index">01 — 03</span
-            ><span
-              >Diseño y desarrollo.<br />Con un propósito claro: que te
-              sirva.</span
-            >
-          </div>
-          <button class="motion-toggle" id="motion-toggle" type="button" hidden>
-            <span class="motion-icon" aria-hidden="true">Ⅱ</span
-            ><span class="motion-label">Pausar animaciones</span>
-          </button>
-        </div>
-        <div
-          class="hero-art"
-          aria-label="Ilustración de una página web, una app Android y una base de datos conectadas"
-          role="img"
+      <section
+        class="hero hero-original"
+        id="inicio"
+        aria-labelledby="hero-title"
+      >
+        <svg
+          class="neural-field"
+          viewBox="0 0 1400 800"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+          focusable="false"
         >
-          <div class="art-grid"></div>
-          <div class="hero-aura" aria-hidden="true"></div>
-          <svg
-            class="signal-paths"
-            viewBox="0 0 600 600"
-            aria-hidden="true"
-            focusable="false"
+          <g class="neural-links">
+            <path d="M447 41L420 173" />
+            <path d="M447 41L330 132" />
+            <path d="M447 41L552 124" />
+            <path d="M1087 67L1022 110" />
+            <path d="M1087 67L1024 49" />
+            <path d="M1087 67L1113 206" />
+            <path d="M1087 67L991 175" />
+            <path d="M1087 67L1040 74" />
+            <path d="M1087 67L1044 93" />
+            <path d="M1087 67L991 113" />
+            <path d="M343 274L259 376" />
+            <path d="M343 274L420 173" />
+            <path d="M343 274L330 132" />
+            <path d="M54 86L117 105" />
+            <path d="M321 741L256 722" />
+            <path d="M772 275L748 317" />
+            <path d="M772 275L823 299" />
+            <path d="M772 275L725 264" />
+            <path d="M772 275L661 258" />
+            <path d="M772 275L657 198" />
+            <path d="M259 376L258 434" />
+            <path d="M259 376L171 308" />
+            <path d="M259 376L141 291" />
+            <path d="M975 755L964 608" />
+            <path d="M975 755L979 772" />
+            <path d="M975 755L939 739" />
+            <path d="M748 317L823 299" />
+            <path d="M748 317L725 264" />
+            <path d="M748 317L661 258" />
+            <path d="M748 317L657 198" />
+            <path d="M823 299L725 264" />
+            <path d="M725 264L661 258" />
+            <path d="M725 264L657 198" />
+            <path d="M442 393L501 347" />
+            <path d="M661 258L657 198" />
+            <path d="M645 774L543 724" />
+            <path d="M1067 460L952 459" />
+            <path d="M1067 460L1105 536" />
+            <path d="M1067 460L1133 542" />
+            <path d="M1067 460L1028 429" />
+            <path d="M1067 460L1177 522" />
+            <path d="M1067 460L1186 503" />
+            <path d="M493 621L494 637" />
+            <path d="M493 621L543 724" />
+            <path d="M952 459L964 608" />
+            <path d="M952 459L842 544" />
+            <path d="M952 459L1028 429" />
+            <path d="M1022 110L1024 49" />
+            <path d="M1022 110L1113 206" />
+            <path d="M1022 110L991 175" />
+            <path d="M1022 110L1040 74" />
+            <path d="M1022 110L1044 93" />
+            <path d="M1022 110L991 113" />
+            <path d="M964 608L842 544" />
+            <path d="M964 608L939 739" />
+            <path d="M757 479L842 544" />
+            <path d="M757 479L812 517" />
+            <path d="M757 479L708 482" />
+            <path d="M1186 352L1156 332" />
+            <path d="M1186 352L1302 355" />
+            <path d="M1342 491L1302 355" />
+            <path d="M849 97L744 110" />
+            <path d="M849 97L790 45" />
+            <path d="M849 97L991 113" />
+            <path d="M1024 49L991 175" />
+            <path d="M1024 49L1040 74" />
+            <path d="M1024 49L1044 93" />
+            <path d="M1024 49L991 113" />
+            <path d="M420 173L330 132" />
+            <path d="M420 173L495 213" />
+            <path d="M420 173L552 124" />
+            <path d="M1113 206L1156 332" />
+            <path d="M1113 206L991 175" />
+            <path d="M1113 206L1044 93" />
+            <path d="M55 323L171 308" />
+            <path d="M55 323L141 291" />
+            <path d="M1105 536L1133 542" />
+            <path d="M1105 536L1028 429" />
+            <path d="M1105 536L1177 522" />
+            <path d="M1105 536L1186 503" />
+            <path d="M258 434L344 541" />
+            <path d="M979 772L939 739" />
+            <path d="M1156 332L1302 355" />
+            <path d="M842 544L812 517" />
+            <path d="M842 544L708 482" />
+            <path d="M495 213L501 347" />
+            <path d="M495 213L552 124" />
+            <path d="M1133 542L1177 522" />
+            <path d="M1133 542L1186 503" />
+            <path d="M744 110L657 198" />
+            <path d="M744 110L790 45" />
+            <path d="M744 110L608 95" />
+            <path d="M657 198L552 124" />
+            <path d="M657 198L608 95" />
+            <path d="M812 517L708 482" />
+            <path d="M171 308L141 291" />
+            <path d="M991 175L1040 74" />
+            <path d="M991 175L1044 93" />
+            <path d="M991 175L991 113" />
+            <path d="M256 722L193 655" />
+            <path d="M552 124L608 95" />
+            <path d="M1177 522L1186 503" />
+            <path d="M1040 74L1044 93" />
+            <path d="M1040 74L991 113" />
+            <path d="M1044 93L991 113" />
+            <path d="M494 637L543 724" />
+          </g>
+          <g class="neural-nodes">
+            <circle cx="447" cy="41" r="1.1" />
+            <circle cx="1087" cy="67" r="1.4000000000000001" />
+            <circle cx="343" cy="274" r="1.7000000000000002" />
+            <circle cx="54" cy="86" r="1.1" />
+            <circle cx="321" cy="741" r="1.4000000000000001" />
+            <circle cx="772" cy="275" r="1.7000000000000002" />
+            <circle cx="259" cy="376" r="1.1" />
+            <circle cx="975" cy="755" r="1.4000000000000001" />
+            <circle cx="748" cy="317" r="1.7000000000000002" />
+            <circle cx="823" cy="299" r="1.1" />
+            <circle cx="725" cy="264" r="1.4000000000000001" />
+            <circle cx="442" cy="393" r="1.7000000000000002" />
+            <circle cx="661" cy="258" r="1.1" />
+            <circle cx="645" cy="774" r="1.4000000000000001" />
+            <circle cx="1067" cy="460" r="1.7000000000000002" />
+            <circle cx="493" cy="621" r="1.1" />
+            <circle cx="952" cy="459" r="1.4000000000000001" />
+            <circle cx="1022" cy="110" r="1.7000000000000002" />
+            <circle cx="964" cy="608" r="1.1" />
+            <circle cx="757" cy="479" r="1.4000000000000001" />
+            <circle cx="1186" cy="352" r="1.7000000000000002" />
+            <circle cx="1342" cy="491" r="1.1" />
+            <circle cx="849" cy="97" r="1.4000000000000001" />
+            <circle cx="1024" cy="49" r="1.7000000000000002" />
+            <circle cx="420" cy="173" r="1.1" />
+            <circle cx="1113" cy="206" r="1.4000000000000001" />
+            <circle cx="1277" cy="737" r="1.7000000000000002" />
+            <circle cx="55" cy="323" r="1.1" />
+            <circle cx="1105" cy="536" r="1.4000000000000001" />
+            <circle cx="330" cy="132" r="1.7000000000000002" />
+            <circle cx="258" cy="434" r="1.1" />
+            <circle cx="117" cy="105" r="1.4000000000000001" />
+            <circle cx="979" cy="772" r="1.7000000000000002" />
+            <circle cx="1156" cy="332" r="1.1" />
+            <circle cx="842" cy="544" r="1.4000000000000001" />
+            <circle cx="495" cy="213" r="1.7000000000000002" />
+            <circle cx="1133" cy="542" r="1.1" />
+            <circle cx="744" cy="110" r="1.4000000000000001" />
+            <circle cx="501" cy="347" r="1.7000000000000002" />
+            <circle cx="657" cy="198" r="1.1" />
+            <circle cx="1302" cy="355" r="1.4000000000000001" />
+            <circle cx="812" cy="517" r="1.7000000000000002" />
+            <circle cx="708" cy="482" r="1.1" />
+            <circle cx="171" cy="308" r="1.4000000000000001" />
+            <circle cx="991" cy="175" r="1.7000000000000002" />
+            <circle cx="256" cy="722" r="1.1" />
+            <circle cx="1028" cy="429" r="1.4000000000000001" />
+            <circle cx="790" cy="45" r="1.7000000000000002" />
+            <circle cx="552" cy="124" r="1.1" />
+            <circle cx="608" cy="95" r="1.4000000000000001" />
+            <circle cx="104" cy="491" r="1.7000000000000002" />
+            <circle cx="141" cy="291" r="1.1" />
+            <circle cx="344" cy="541" r="1.4000000000000001" />
+            <circle cx="1177" cy="522" r="1.7000000000000002" />
+            <circle cx="1040" cy="74" r="1.1" />
+            <circle cx="1044" cy="93" r="1.4000000000000001" />
+            <circle cx="991" cy="113" r="1.7000000000000002" />
+            <circle cx="1186" cy="503" r="1.1" />
+            <circle cx="494" cy="637" r="1.4000000000000001" />
+            <circle cx="939" cy="739" r="1.7000000000000002" />
+            <circle cx="543" cy="724" r="1.1" />
+            <circle cx="193" cy="655" r="1.4000000000000001" />
+          </g>
+        </svg>
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <h1 id="hero-title">Creamos lo<br />que sigue.</h1>
+            <p class="hero-line">
+              Convertimos ideas en
+              <span class="rotating-words" aria-hidden="true"
+                ><span>páginas web</span><span>apps Android</span
+                ><span>bases de datos</span></span
+              ><span class="sr-only"
+                >páginas web, apps Android y bases de datos.</span
+              >
+            </p>
+            <p class="hero-description">
+              Estudio de tecnología y diseño para empresas, emprendimientos y
+              organizaciones. Páginas web, apps Android y bases de datos para
+              dar tu siguiente paso.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#contacto"
+                >Hablemos de tu proyecto <span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <button
+              class="motion-toggle"
+              id="motion-toggle"
+              type="button"
+              hidden
+            >
+              <span class="motion-icon" aria-hidden="true">Ⅱ</span
+              ><span class="motion-label">Pausar animaciones</span>
+            </button>
+          </div>
+          <div
+            class="hero-art hero-signal"
+            role="img"
+            aria-label="Símbolo de Axon Studios con un halo de luz azul"
           >
-            <defs>
-              <linearGradient id="signal-gradient" x1="0" y1="0" x2="1" y2="1">
-                <stop stop-color="#7fcaff" />
-                <stop offset="1" stop-color="#4260ff" />
-              </linearGradient>
-            </defs>
-            <g class="signal-lines">
-              <path d="M80 100H405Q440 100 440 140V450Q440 490 400 490H150" />
-              <path d="M100 390V190Q100 160 130 160H500" />
-              <path d="M170 520H460Q510 520 510 470V240" />
-            </g>
-            <g class="signal-packets">
-              <path d="M80 100H405Q440 100 440 140V450Q440 490 400 490H150" />
-              <path d="M100 390V190Q100 160 130 160H500" />
-              <path d="M170 520H460Q510 520 510 470V240" />
-            </g>
-            <g class="signal-points">
-              <circle cx="80" cy="100" r="4" />
-              <circle cx="500" cy="160" r="4" />
-              <circle cx="170" cy="520" r="4" />
-            </g>
-          </svg>
-          <span class="art-coordinate" aria-hidden="true">AX / 001</span>
-          <span class="art-spark spark-one" aria-hidden="true">✳</span>
-          <span class="art-spark spark-two" aria-hidden="true">＋</span>
-          <div class="art-orbit orbit-one"></div>
-          <div class="art-orbit orbit-two"></div>
-          <div class="art-label art-label-top">
-            <span class="status-dot"></span> DE LA IDEA A LA PANTALLA
+            <img src="img/5 (1).png" alt="" width="320" height="320" />
           </div>
-          <div class="art-window">
-            <div class="window-top">
-              <span class="window-dots"><i></i><i></i><i></i></span
-              ><span>tu próximo proyecto</span><span>↗</span>
-            </div>
-            <div class="window-content">
-              <div class="mock-nav">
-                <span class="mock-brand">a<span>↗</span></span
-                ><span>Inicio &nbsp; Servicios &nbsp; Contacto</span>
-              </div>
-              <p>UNA IDEA. MUCHAS POSIBILIDADES.</p>
-              <div class="mock-headline">
-                Hecho para<br />dar el siguiente<br /><span>paso.</span>
-              </div>
-              <div class="mock-cta">Conoce más <span>↗</span></div>
-              <div class="mock-lines"><i></i><i></i><i></i></div>
-            </div>
-          </div>
-          <div class="art-phone">
-            <div class="phone-camera"></div>
-            <div class="phone-content">
-              <span class="phone-greeting">Tu negocio, a mano</span
-              ><strong>Hola, equipo<span>✦</span></strong>
-              <div class="phone-summary">
-                <small>VISTA GENERAL</small><b>Todo en orden.</b>
-                <div class="mini-bars">
-                  <i></i><i></i><i></i><i></i><i></i><i></i>
-                </div>
-              </div>
-              <div class="phone-row">
-                <span>↗</span>
-                <div>Pedidos<small>Organiza tu día</small></div>
-                <b>›</b>
-              </div>
-              <div class="phone-row">
-                <span>▤</span>
-                <div>Inventario<small>La información, al día</small></div>
-                <b>›</b>
-              </div>
-              <div class="phone-bottom">
-                <span>⌂</span><span>▥</span><span>○</span>
-              </div>
-            </div>
-          </div>
-          <div class="art-data">
-            <span class="data-icon">▤</span>
-            <div>
-              <small>EL PUNTO DE CONEXIÓN</small
-              ><strong>Tus datos. Organizados.</strong>
-            </div>
-            <span class="connection-dot"></span>
-          </div>
-          <div class="art-caption">
-            WEB <span>+</span> ANDROID <span>+</span> DATOS
-          </div>
+          <p class="hero-hud">
+            <span>Lima, Perú</span
+            ><time id="lima-clock" aria-label="Hora en Lima"></time
+            ><span><i aria-hidden="true"></i> Diseño + desarrollo</span>
+          </p>
         </div>
       </section>
       <div class="service-strip">
@@ -609,6 +710,165 @@
       </section>
 
       <section
+        class="section container project-config"
+        id="configurador"
+        aria-labelledby="config-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">TU PROYECTO, A TU MEDIDA</p>
+            <h2 id="config-title">
+              Arma tu proyecto.<br />Mira cómo toma forma.
+            </h2>
+          </div>
+          <p>
+            Elige lo que necesitas. El diagrama cambia contigo y te muestra una
+            referencia inicial de tiempo, sin compromiso.
+          </p>
+        </div>
+        <div class="config-layout">
+          <form id="cfg" class="config-options">
+            <fieldset>
+              <legend>¿Qué quieres crear?</legend>
+              <div class="config-choices">
+                <label
+                  ><input type="radio" name="tipo" value="web" checked /><span
+                    >Página o app web</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="tipo" value="android" /><span
+                    >App Android</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="tipo" value="datos" /><span
+                    >Base de datos</span
+                  ></label
+                >
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>¿En qué punto estás?</legend>
+              <div class="config-choices">
+                <label
+                  ><input
+                    type="radio"
+                    name="alcance"
+                    value="mvp"
+                    checked
+                  /><span>Primera versión</span></label
+                >
+                <label
+                  ><input type="radio" name="alcance" value="completo" /><span
+                    >Producto completo</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="alcance" value="escalar" /><span
+                    >Ya existe, quiero mejorarlo</span
+                  ></label
+                >
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>¿Qué más necesitas?</legend>
+              <div class="config-choices">
+                <label
+                  ><input type="checkbox" name="extra" value="design" /><span
+                    >Diseño UX/UI</span
+                  ></label
+                >
+                <label
+                  ><input type="checkbox" name="extra" value="api" /><span
+                    >Integraciones y APIs</span
+                  ></label
+                >
+                <label
+                  ><input type="checkbox" name="extra" value="admin" /><span
+                    >Panel de administración</span
+                  ></label
+                >
+                <label
+                  ><input type="checkbox" name="extra" value="db" /><span
+                    >Base de datos integrada</span
+                  ></label
+                >
+                <label
+                  ><input type="checkbox" name="extra" value="care" /><span
+                    >Soporte posterior</span
+                  ></label
+                >
+              </div>
+            </fieldset>
+          </form>
+          <div class="config-blueprint">
+            <svg
+              id="cfg-diagram"
+              viewBox="0 0 340 235"
+              role="img"
+              aria-label="Módulos seleccionados: interfaz"
+            >
+              <g class="cfg-node on" data-module="ui">
+                <path d="M170 115L50 65" />
+                <circle cx="50" cy="65" r="10" />
+                <text x="50" y="42">Interfaz</text>
+              </g>
+              <g class="cfg-node" data-module="design">
+                <path d="M170 115V25" />
+                <circle cx="170" cy="25" r="10" />
+                <text x="170" y="9">Diseño</text>
+              </g>
+              <g class="cfg-node" data-module="api">
+                <path d="M170 115L290 65" />
+                <circle cx="290" cy="65" r="10" />
+                <text x="290" y="42">APIs</text>
+              </g>
+              <g class="cfg-node" data-module="admin">
+                <path d="M170 115L50 175" />
+                <circle cx="50" cy="175" r="10" />
+                <text x="50" y="204">Panel</text>
+              </g>
+              <g class="cfg-node" data-module="db">
+                <path d="M170 115L290 175" />
+                <circle cx="290" cy="175" r="10" />
+                <text x="290" y="204">Datos</text>
+              </g>
+              <g class="cfg-node" data-module="care">
+                <path d="M170 115V210" />
+                <circle cx="170" cy="210" r="10" />
+                <text x="170" y="190">Soporte</text>
+              </g>
+              <circle class="cfg-core-halo" cx="170" cy="115" r="26" />
+              <circle class="cfg-core" cx="170" cy="115" r="18" />
+            </svg>
+            <div class="config-estimate">
+              <span>Plazo orientativo</span
+              ><output id="cfg-est" aria-live="polite">3 a 5 semanas</output>
+            </div>
+            <p id="cfg-summary" class="config-summary" aria-live="polite">
+              Página o app web, primera versión.
+            </p>
+            <p class="config-disclaimer">
+              Referencia automática para una solución de complejidad baja o
+              media. No es una cotización ni un plazo acordado: se confirma al
+              revisar funciones, contenido e integraciones. El soporte posterior
+              no se incluye en estas semanas.
+            </p>
+            <button type="button" id="cfg-send" class="button" disabled>
+              Enviar esta configuración <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </div>
+        <noscript
+          ><p class="noscript-note">
+            Activa JavaScript para actualizar el diagrama y la referencia de
+            tiempo, o cuéntanos directamente tu idea en el
+            <a href="#contacto">formulario de contacto</a>.
+          </p></noscript
+        >
+      </section>
+      <section
         class="faq-section section container"
         id="preguntas"
         aria-labelledby="faq-title"
@@ -729,6 +989,19 @@
             method="POST"
             enctype="multipart/form-data"
           >
+            <input
+              type="hidden"
+              id="config-selection"
+              name="configuracion"
+              value=""
+            />
+            <div class="config-review" id="config-review" hidden>
+              <p>Tu configuración</p>
+              <span id="config-review-text"></span
+              ><button id="cfg-clear" type="button">
+                Quitar configuración
+              </button>
+            </div>
             <input
               type="hidden"
               name="_subject"

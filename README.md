@@ -15,10 +15,10 @@ Abre `http://localhost:8000`. El envío del formulario depende del servicio exte
 ## Decisiones de la mejora
 
 - **Enfoque:** tres servicios actuales en lugar de una oferta general de software, IA y cloud.
-- **Identidad:** conservamos la marca, el fondo oscuro y el azul. La nueva composición muestra web, Android y datos mediante ilustraciones en HTML y CSS.
+- **Identidad:** conservamos la marca, el fondo oscuro y el azul. Se conserva la portada original: “Creamos lo que sigue”, logo blanco y una red de puntos animada en SVG. Las tarjetas muestran web, Android y datos mediante ilustraciones en HTML y CSS.
 - **Contenido verificable:** los ejemplos se identifican como conceptos. No son proyectos reales, testimonios ni resultados de clientes.
-- **Consulta útil:** cada enlace de servicio preselecciona el tema del formulario. Se eliminó el estimador automático de plazos: faltaban requisitos para respaldar sus cifras.
-- **Movimiento con control:** ilustraciones flotantes y conexiones animadas en la portada, entradas escalonadas y transiciones entre ejemplos. Sin cursor personalizado, canvas ni bucles de JavaScript. El texto principal está disponible sin JavaScript. El usuario puede pausar el movimiento; también se respeta la preferencia de movimiento reducido del sistema, incluidos cambios durante la visita. La preferencia manual se guarda localmente si el navegador lo permite. Las ilustraciones se pausan fuera de pantalla y las animaciones se pausan al ocultar la pestaña.
+- **Configurador recuperado:** tres tipos de proyecto, etapa y extras actualizan un diagrama y un rango orientativo. La fórmula es una referencia de planificación para complejidad baja o media, no una cotización: parte de 4 semanas para web, 8 para Android y 3 para datos; aplica un factor de alcance y suma esfuerzo por extras. El soporte posterior no suma semanas. Estas hipótesis deben calibrarse con la capacidad y experiencia reales del negocio. El plazo se confirma tras revisar requisitos. La selección se envía como un campo independiente; no sobrescribe el mensaje. Se puede quitar y se limpia al cambiar de servicio o completar el envío.
+- **Movimiento con control:** logo flotante y una red de partículas SVG en la portada, entradas escalonadas y transiciones entre ejemplos. Sin cursor personalizado, canvas ni bucles de JavaScript. El texto principal está disponible sin JavaScript. El usuario puede pausar el movimiento; también se respeta la preferencia de movimiento reducido del sistema, incluidos cambios durante la visita. La preferencia manual se guarda localmente si el navegador lo permite. Las ilustraciones se pausan fuera de pantalla y las animaciones se pausan al ocultar la pestaña.
 - **Interacción accesible:** menú con estado y cierre mediante Escape; ejemplos con pestañas y navegación de teclado; preguntas frecuentes nativas; foco visible y respeto por movimiento reducido.
 - **Contacto:** validación de correo, mensaje y adjuntos; bloqueo de envíos simultáneos; confirmación solo con respuesta positiva del proveedor; conservación del mensaje ante errores; tiempo máximo de espera de 25 segundos.
 
@@ -33,7 +33,7 @@ npm ci
 npm test
 ```
 
-Las doce pruebas usan un DOM simulado y respuestas de red simuladas. Verifican estructura, archivos, enlaces, menú, pestañas, selección de servicio y éxito/error del formulario, incluidos adjuntos y duplicados. También comprueban preferencias de movimiento, pausa y reanudación, contenido accesible al recibir foco y funcionamiento sin IntersectionObserver o almacenamiento local. No envían consultas reales y **no sustituyen las pruebas en navegador**, de accesibilidad con lector de pantalla ni de entrega de correo.
+Las quince pruebas usan un DOM simulado y respuestas de red simuladas. Verifican estructura, archivos, enlaces, menú, pestañas, configurador, selección de servicio y éxito/error del formulario, incluidos adjuntos y duplicados. También comprueban preferencias de movimiento, pausa y reanudación, contenido accesible al recibir foco y funcionamiento sin IntersectionObserver o almacenamiento local. No envían consultas reales y **no sustituyen las pruebas en navegador**, de accesibilidad con lector de pantalla ni de entrega de correo.
 
 ## Antes de publicar
 
@@ -50,6 +50,7 @@ Las doce pruebas usan un DOM simulado y respuestas de red simuladas. Verifican e
 - `styles.css`: identidad visual, ilustraciones y tamaños adaptables.
 - `script.js`: menú, pestañas, selección del servicio y envío de consulta.
 - `motion.js`: preferencias, pausa y entradas al recorrer la página, sin dependencias.
+- `configurator.js`: cálculo orientativo, módulos, resumen de consulta y hora inicial de Lima.
 - `img/`: imágenes originales de la marca.
 - `tests/site.test.cjs`: pruebas de estructura e interacción.
 

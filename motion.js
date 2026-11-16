@@ -71,6 +71,8 @@
         });
       });
       if (art) visibilityObserver.observe(art);
+      const hero = document.querySelector(".hero-original");
+      if (hero) visibilityObserver.observe(hero);
     }
   }
 
